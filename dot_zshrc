@@ -1,0 +1,23 @@
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/gems/vagrant-2.4.3/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)
+
+# History file for zsh
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY
+
+eval "$(zellij setup --generate-auto-start zsh)"
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+source <(fzf --zsh)
+
+alias cd="z"
+alias cat="batcat"
+alias ls="lsd -l"
+alias ll="ls -latr"
+
+export TERM=xterm-color
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
